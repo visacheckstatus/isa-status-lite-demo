@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Visa Status Check</title>
+</head>
+<body>
+  <h1>Visa / Application Status</h1>
+  <form method="POST" action="/status">
+    <label>Passport Number:</label>
+    <input type="text" name="passport" required><br><br>
+
+    <label>Reference Number:</label>
+    <input type="text" name="reference" required><br><br>
+
+    <button type="submit">Check Status</button>
+  </form>
+
+  <% if (error) { %>
+    <p style="color:red;"><%= error %></p>
+  <% } %>
+
+  <% if (result) { %>
+    <h3>Result:</h3>
+    <p>Passport: <%= result.passport %></p>
+    <p>Reference: <%= result.reference %></p>
+    <p>Status: <%= result.status %></p>
+  <% } %>
+</body>
+</html>
